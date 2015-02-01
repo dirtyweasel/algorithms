@@ -4,18 +4,16 @@
 
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
-$total = 0;
-for($x = 1 ; $x <1000; $x++){
-	if($x%3 == 0){
-		$total += $x;
-		echo $x;
-	}
-	if($x%5 == 0){
-		$total += $x;
-		echo $x;
+
+$max = 1000;
+$sum = 0;
+
+for($x=0; $x<$max; $x++){
+	if($x%3===0 || $x%5===0){
+		$sum += $x;
 	}
 }
 
-echo "\n". $total . "\n";
+echo $sum;
 
 ?>

@@ -4,30 +4,30 @@
 
 // What is the largest prime factor of the number 600851475143 ?
 
-$try = 600851475143;
-	if($try%5 == 0){
-		$try /= 5;
-		echo 5 . "\n";
-	}
-	if($try%7 == 0){
-		$try /= 7;
-		echo 7 . "\n"; 
+
+$number = 600851475143;
+$max = 0;
+
+for($x=1; $x<=$number/2 ; $x++){
+	if($number%$x ===0 && is_prime($x) && $x>$max){
+		$max = $x;
+		echo $max."\n";
 	}
 
-for($x=11 ; $x<$try; $x++){
-
-	if( ($x%2 !== 0) && 
-		($x%3 !== 0) &&
-		($x%5 !== 0) &&
-		($x%7 !== 0) &&
-		($try%$x == 0) 
-	  ){ 
-	    echo $x . "\n";
-		$try = $try / $x;
-		    if($x==$try){
-		    	break;
-		    }
-	   }
 }
+
+echo 'Largest prime factor is '.$max;
+
+function is_prime($x){
+	$is_prime = true;
+	for($y=2 ; $y<=$x-1; $y++){
+		if ($x%$y===0){
+			$is_prime = false;
+		}
+
+	}
+	return $is_prime;
+}
+
 
 ?>
